@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="chinese (simplified)">
+
+<head>
+    <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>GeoJSON on Python</title>
+
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+  <link href="/" rel="canonical" />
+
+  <!-- Feed -->
+
+  <link href="/theme/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+      <link href="/theme/css/code_blocks/github.css" rel="stylesheet">
+
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+  <link href="/pelican-install.html" rel="canonical" />
+
+    <meta name="description" content="为了排雷和学习，在此记录一下Python地理信息库GEOJSON的安装使用的学习过程 安装 python 环境 conda create -n geojson python=3.7.0 Geojson pip install geojson Github:...">
+
+    <meta name="author" content="Noricks">
+
+    <meta name="tags" content="Python">
+
+
+
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="Noricks' Blog"/>
+<meta property="og:title" content="GeoJSON on Python"/>
+<meta property="og:description" content="为了排雷和学习，在此记录一下Python地理信息库GEOJSON的安装使用的学习过程 安装 python 环境 conda create -n geojson python=3.7.0 Geojson pip install geojson Github:..."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/pelican-install.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-02-17 00:00:00+01:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/noricks.html">
+<meta property="article:section" content="Python"/>
+<meta property="article:tag" content="Python"/>
+<meta property="og:image" content="/theme/images/post-bg.jpg">
+
+<!-- Twitter Card -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "GeoJSON on Python",
+  "headline": "GeoJSON on Python",
+  "datePublished": "2020-02-17 00:00:00+01:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "Noricks",
+    "url": "/author/noricks.html"
+  },
+  "image": "/theme/images/post-bg.jpg",
+  "url": "/pelican-install.html",
+  "description": "为了排雷和学习，在此记录一下Python地理信息库GEOJSON的安装使用的学习过程 安装 python 环境 conda create -n geojson python=3.7.0 Geojson pip install geojson Github:..."
+}
+</script>
+</head>
+<!-- TODO : Body class -->
+<body class="home-template">
+
+<nav id="menu">
+  <a class="close-button">Close</a>
+  <div class="nav-wrapper">
+    <p class="nav-label">Menu</p>
+    <ul>
+
+
+    </ul>
+  </div>
+</nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="post-header" class="has-cover">
+      <div class="inner">
+        <nav id="navigation">
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <h1 class="post-title">GeoJSON on Python</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="/author/noricks.html">Noricks</a>
+            | <time datetime="周一 17 二月 2020">周一 17 二月 2020</time>
+        </span>
+        <!-- TODO : Modified check -->
+            <div class="post-cover cover" style="background-image: url('/theme/images/post-bg.jpg')">
+      </div>
+    </header>
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+                <p>为了排雷和学习，在此记录一下Python地理信息库<code>GEOJSON</code>的安装使用的学习过程</p>
+<h1>安装</h1>
+<h2>python 环境</h2>
+<p><code>conda create -n geojson python=3.7.0</code></p>
+<h2>Geojson</h2>
+<p><code>pip install geojson</code><br>
+Github: https://github.com/jazzband/geojson</p>
+<h2>扩展包 GeoPandas</h2>
+<h3>坑1</h3>
+<p>使用<code>pip install geopandas</code>安装
+会出现<br>
+<code>A GDAL API version must be specified. Provide a path to gdal-config using a GDAL_CONFIG environment variable or use a GDAL_VERSION environment variable.</code>
+ 错误提示
+ 错误来源应该是<code>fiona</code>这个前置包<br>
+ 解决方法: 可以参考 https://blog.csdn.net/lionhenryzxxy/article/details/101423206</p>
+<p>### 坑2
+ 为了解决附属包安装错误的问题尝试使用 <code>conda install fiona</code><br>
+ 注意: <code>conda</code> 并没有 <code>geopandas</code> 的检索 而问题的确出在 <code>fiona</code> 的安装上
+ 再使用pip安装就可以解决问题了<br>
+ （包都能在清华源上自动被pip找到）
+ ### 坑3
+ 在conda安装过程中出现conda无法移除部分文件夹需要手动释放移除的(<code>need reboot</code>)问题<br>
+ 重启并删除了环境，重新安装就解决了</p>
+<p># 数据
+ http://geojson.io/ 提供快速刷新的低精度地图<br>
+ http://datav.aliyun.com/tools/atlas/ 阿里云中国区划图，地区边界<br>
+ https://stackoverflow.com/questions/17267248/how-where-do-i-get-geojson-data-for-states-provinces-and-administrative-region
+ 如何从shapefile输出geojson
+ https://blog.csdn.net/qq_39059167/article/details/86665486 GIS地理空间数据免费获取指南<br>
+ https://gadm.org/ 只有地区边界
+ # 使用
+ ## 载入数据
+ 从 www.openstreetmap.org 截取地图的一部分作为载入数据保存为 <code>map.osm</code><br>
+ 使用 <code>osmtogeojson</code> 将数据转化为 geojson</p>
+<p>##</p>
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=GeoJSON on Python&amp;url=/pelican-install.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=/pelican-install.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url=/pelican-install.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+                <aside class="post-tags">
+<a href="/tag/python.html">Python</a>                </aside>
+
+                <div class="clear"></div>
+
+
+                </section>
+
+
+                <aside class="post-nav">
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
+
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+
+
+          <span class="credits-theme">Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a></span>
+          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
+        </section>
+      </div>
+    </footer>
+  </section>
+
+  <script type="text/javascript" src="/theme/js/script.js"></script>
+
+</body>
+</html>
